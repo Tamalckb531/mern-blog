@@ -13,3 +13,13 @@ Create the empty react client folder with tailwind configurations.
 ## Page Route commit : -
 
 Create all the pages and routes
+
+<hr/>
+
+## Header commit : -
+
+1. In flowbite react TextInput component we pass react-icon in rightIcon props to create the search bar UI
+
+2. Theme toggle and signin button show after menu in large screen and before menu toggle in medium screen -> used md:order-2
+
+3. Used useLocation to find out the path and mark down the active link with active props in Navbar.Link
