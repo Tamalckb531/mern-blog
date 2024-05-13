@@ -31,3 +31,9 @@ Create all the pages and routes
 1. Learn how to write script in package.json
 
 2. Create a dotenv file and config it in server
+
+<hr/>
+
+## Model creation commit : -
+
+created userSchema for users, our first model, which allow users to give only three information : username, password and email.
