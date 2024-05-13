@@ -52,11 +52,11 @@ controller -> routes -> index.js
 
 <hr/>
 
-## Sign Up commit (api route, middleware for handling error) : -
+## Sign Up commit (api route, middleware for handling error, layout design) : -
 
 This contain the full stack sign-up feature
 
-**Backend :**
+_**Backend :**_
 
 1.  auth.route receive the signup post request
 2.  auth.controller :
@@ -65,5 +65,9 @@ This contain the full stack sign-up feature
     3. data modelling: to create a data according to model
     4. data saving: saving data inside database using .save();
        _1 and 4 has next function which sends the response in global catch middleware also 1 use errorHandler function which can create error_
+
+_**Frontend :**_
+
+1. complete the sign up page layout design
 
 <hr/>
