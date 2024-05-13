@@ -52,7 +52,7 @@ controller -> routes -> index.js
 
 <hr/>
 
-## Sign Up commit (api route, middleware for handling error, layout design) : -
+## Sign Up commit (api route, middleware for handling error, layout design, full stack feature) : -
 
 This contain the full stack sign-up feature
 
@@ -68,6 +68,14 @@ _**Backend :**_
 
 _**Frontend :**_
 
-1. complete the sign up page layout design
+1. complete the sign up page layout design.
+2. set the proxy in vite.config.js for port 3000.
+3. setFormData in input change via handleChange function.
+4. Fetch data in /api/auth/signup via handleSubmit function.
+5. receiving res.ok and navigating in the sign-in route.
+
+_**Full stack dataflow :**_
+
+input change -> handleChange -> setFormData -> handleSubmit -> fetch in /auth/api/signup -> index.js auth middleware -> auth.route -> signup controller -> data retrieve from req.body -> null, empty check -> password hash -> data model -> data save in database -> send res.ok in client -> navigate to './signin'
 
 <hr/>
