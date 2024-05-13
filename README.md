@@ -52,7 +52,7 @@ controller -> routes -> index.js
 
 <hr/>
 
-## Sign Up commit (api route) : -
+## Sign Up commit (api route, middleware for handling error) : -
 
 This contain the full stack sign-up feature
 
@@ -64,5 +64,6 @@ This contain the full stack sign-up feature
     2. hash password: hashing password using bcrypt.hashSync(p,s);
     3. data modelling: to create a data according to model
     4. data saving: saving data inside database using .save();
+       _1 and 4 has next function which sends the response in global catch middleware also 1 use errorHandler function which can create error_
 
 <hr/>

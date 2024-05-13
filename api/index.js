@@ -24,3 +24,15 @@ app.listen(3000, () => {
 
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
+
+//? Global catch -> run at the last and catch all the thrown res
+app.use((err, req, res, next) => {
+    const statuscode = err.statuscode || 500;
+    const message = err.message || "Internal server error";
+
+    res.status(statuscode).json({
+        success: false,
+        statuscode,
+        message
+    })
+})
