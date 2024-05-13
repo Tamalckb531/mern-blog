@@ -51,3 +51,18 @@ controller -> routes -> index.js
 3. index.js holds the router with a group route ("/api/user") by using .use() middleware.
 
 <hr/>
+
+## Sign Up commit (api route) : -
+
+This contain the full stack sign-up feature
+
+**Backend :**
+
+1.  auth.route receive the signup post request
+2.  auth.controller :
+    1. edge cases: to check null info
+    2. hash password: hashing password using bcrypt.hashSync(p,s);
+    3. data modelling: to create a data according to model
+    4. data saving: saving data inside database using .save();
+
+<hr/>
