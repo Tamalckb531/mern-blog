@@ -37,3 +37,17 @@ Create all the pages and routes
 ## Model creation commit : -
 
 created userSchema for users, our first model, which allow users to give only three information : username, password and email.
+
+<hr/>
+
+## Test Api commit : -
+
+We created our api structure which goes by this :
+
+controller -> routes -> index.js
+
+1. controller have the function that would run in certain route
+2. routes run the controller function in that particular route ( "/test" )
+3. index.js holds the router with a group route ("/api/user") by using .use() middleware.
+
+<hr/>
