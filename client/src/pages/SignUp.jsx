@@ -41,7 +41,6 @@ const SignUp = () => {
             setLoading(false);
         }
     }
-    console.log(formData);
     return (
         <div className=' min-h-screen mt-20'>
             <div className=" flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
@@ -96,7 +95,7 @@ const SignUp = () => {
 
                     {/* have an account  */}
                     <div className=" flex gap-2 text-sm mt-5">
-                        <span>Have and account?</span>
+                        <span>Have an account?</span>
                         <Link to='/signin' className=' text-blue-500'>
                             Sign In
                         </Link>

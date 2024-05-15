@@ -86,7 +86,7 @@ Footer added -> add dynamic date in the copyright section
 
 <hr />
 
-## Sign In commit (api route) : -
+## Sign In commit (api route, frontend part) : -
 
 This contain the full stack sign-up feature
 
@@ -99,5 +99,9 @@ _**Backend :**_
     3. Token generation: create token with id using jwt.
     4. sending token: separate password and send the rest info in response with token in the cookie
        _next function send the error in the global catch and errorHandler create an error_
+
+_**Frontend :**_
+
+same as the sign-up
 
 <hr/>

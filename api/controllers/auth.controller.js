@@ -70,7 +70,7 @@ export const signin = async (req, res, next) => {
 
         //? sending token as cookie
 
-        const { password: pass, ...rest } = validUser._doc; //*seperating password for not to sent it in response
+        const { password: pass, ...rest } = validUser._doc; //* separating password for not to sent it in response
 
         res.status(200).cookie('access_token', token, {
             httpOnly: true,
