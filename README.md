@@ -83,3 +83,21 @@ input change -> handleChange -> setFormData -> handleSubmit -> fetch in /auth/ap
 ## Footer commit : -
 
 Footer added -> add dynamic date in the copyright section
+
+<hr />
+
+## Sign In commit (api route) : -
+
+This contain the full stack sign-up feature
+
+_**Backend :**_
+
+1.  auth.route receive the signin post request
+2.  auth.controller :
+    1. edge cases: to check null info (email and password)
+    2. validate email & password: find with email and compare password with bcrypt.
+    3. Token generation: create token with id using jwt.
+    4. sending token: separate password and send the rest info in response with token in the cookie
+       _next function send the error in the global catch and errorHandler create an error_
+
+<hr/>
