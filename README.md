@@ -79,3 +79,7 @@ _**Full stack dataflow :**_
 input change -> handleChange -> setFormData -> handleSubmit -> fetch in /auth/api/signup -> index.js auth middleware -> auth.route -> signup controller -> data retrieve from req.body -> null, empty check -> password hash -> data model -> data save in database -> send res.ok in client -> navigate to './signin'
 
 <hr/>
+
+## Footer commit : -
+
+Footer added -> add dynamic date in the copyright section
