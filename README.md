@@ -86,7 +86,7 @@ Footer added -> add dynamic date in the copyright section
 
 <hr />
 
-## Sign In commit (api route, frontend part) : -
+## Sign In commit (api route, frontend part, redux dataflow) : -
 
 This contain the full stack sign-up feature
 
@@ -104,4 +104,32 @@ _**Frontend :**_
 
 same as the sign-up
 
+_**Redux dataflow :**_
+
+*Data: currentUser, error, loading
+*Reducers: signInStart(loading = true), signInSuccess(currentUser = action.payload, loading = false), singInFailure(error = action.payload, loading = false)
+
+1. using loading and error state of redux store via useSelector
+2. handleSubmit triggering signInStart()
+3. res.ok triggering signInSuccess(data as action.payload)
+4. all errors triggering singInFailure(err.message)
+5. using loading and error with useSelector(state => state.user) for loading and error alert.
+
 <hr/>
+
+## Redux commit : -
+
+_**setup :**_
+
+1. Create the store inside redux/store.js.
+2. Wrap the root App component with the redux context Provider.
+3. Slice: states and functions for a particular dataflow :
+   1. initialState: store the initial data just like useState(init);
+   2. userSlice: reducer that can manipulate state with functions :
+      1. name:
+      2. initialState
+      3. reducers: all the the functions with there state and action as parameter
+4. export the reducer functions.
+5. export the reducer itself as default to set in the reducer in store.
+   \*\* extra to know : to use the reducer => useDispatch()
+   to use the states => useSelector()
