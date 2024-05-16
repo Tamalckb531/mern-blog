@@ -117,6 +117,20 @@ _**Redux dataflow :**_
 
 <hr/>
 
+## Oauth commit (frontend part) : -
+
+_**Frontend :**_
+
+1. add firebase.js in src with .env api and export the app.
+2. handleGoogleClick in Oauth :
+
+   1. signin the user using there google account and save it into the resultsFromGoogle
+   2. make post request and send name, email, googlePhotoUrl in /api/auth/google
+   3. make json data out of post request data.
+   4. on res.ok : dispatch(signInSuccess(data)); called and navigating into home
+
+<hr/>
+
 ## Redux commit (setup, persisted data) : -
 
 _**setup :**_
