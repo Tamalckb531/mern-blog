@@ -16,13 +16,19 @@ Create all the pages and routes
 
 <hr/>
 
-## Header commit : -
+## Header commit (initial, dynamic) : -
 
 1. In flowbite react TextInput component we pass react-icon in rightIcon props to create the search bar UI
 
 2. Theme toggle and signin button show after menu in large screen and before menu toggle in medium screen -> used md:order-2
 
 3. Used useLocation to find out the path and mark down the active link with active props in Navbar.Link
+
+_**Dynamic :**_ :
+
+1. checking the currentUser exist or not :
+   1. if exist: showing Avatar with dropdown.
+   2. if not exist: showing the Sign In button.
 
 <hr/>
 
