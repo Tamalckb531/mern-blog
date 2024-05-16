@@ -36,7 +36,7 @@ Create all the pages and routes
 
 ## Model creation commit : -
 
-created userSchema for users, our first model, which allow users to give only three information : username, password and email.
+created userSchema for users, our first model, which allow users to give only three information : username, password, profilePicture and email.
 
 <hr/>
 
@@ -117,7 +117,7 @@ _**Redux dataflow :**_
 
 <hr/>
 
-## Oauth commit (frontend part) : -
+## Oauth commit (frontend part, backend part) : -
 
 _**Frontend :**_
 
@@ -128,6 +128,19 @@ _**Frontend :**_
    2. make post request and send name, email, googlePhotoUrl in /api/auth/google
    3. make json data out of post request data.
    4. on res.ok : dispatch(signInSuccess(data)); called and navigating into home
+
+_**Backend :**_
+
+1.  auth.route receive the google post request
+2.  auth.controller :
+    1. Find the user using findone() method
+    2. On users existence:
+    3. creating token and sending the info without password
+    4. On users non-existence :
+    5. generate password and hashing it for new user
+    6. create new user with name, email, pass and picture
+    7. creating token and sending the info without password
+       _next function send the error in the global catch and errorHandler create an error_
 
 <hr/>
 
