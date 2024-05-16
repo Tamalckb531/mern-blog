@@ -117,7 +117,7 @@ _**Redux dataflow :**_
 
 <hr/>
 
-## Redux commit : -
+## Redux commit (setup, persisted data) : -
 
 _**setup :**_
 
@@ -131,5 +131,18 @@ _**setup :**_
       3. reducers: all the the functions with there state and action as parameter
 4. export the reducer functions.
 5. export the reducer itself as default to set in the reducer in store.
+
+   <br/>
+
    \*\* extra to know : to use the reducer => useDispatch()
    to use the states => useSelector()
+
+6. In store.js :
+
+   1. combineReducers used to combine all the reducer together
+   2. persistReducer used to store all the data in local storage
+   3. middleware in store is to prevent some error
+   4. persistor is use to making the persisted data available on main.jsx
+   5. main.jsx has PersistGate over the provider to provide all the persisted data.
+
+<hr/>
