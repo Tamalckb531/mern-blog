@@ -188,3 +188,10 @@ _**setup :**_
    5. main.jsx has PersistGate over the provider to provide all the persisted data.
 
 <hr/>
+
+## Private Component commit :-
+
+1. Create a PrivateRoute which see the user is logged in or not.
+   1. If logged then send the user in outlet (the component wrapped inside it).
+   2. If not logged in then send the user in the signIn route
+2. Wrapped the component that needs to private inside it with the browser router.
