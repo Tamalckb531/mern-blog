@@ -198,7 +198,7 @@ _**setup :**_
 
 <hr/>
 
-## Dashboard commit (Profile UI): -
+## Dashboard commit (Profile UI, Image Upload feature): -
 
 _**Profile UI :**_
 
@@ -209,5 +209,17 @@ _**Profile UI :**_
       2. Have Profile and signOut. Make profile active according to tab
    3. Also there has DashProfile which render conditionally if the tab is profile which have :
       1. The whole User profile with image.
+
+_**Image Upload feature :**_
+
+1. Input file has handleImageChange function that save the image file inside imageFile state and creating an url and saving inside imageFileUrl state
+2. useEffect -> check imageFile exist -> uploadImage()
+3. uploadImage() -> storage and filename -> ref those in storageRef -> uploadTask by bytes resumable both storageRef and imageFile.
+4. uploadTask.on()-> progress, error, download url.
+
+_UI_
+
+1. Circular Progressbar depends on imageFileUploadProgress state.
+2. Alert depends on imageFileUploadError
 
 <hr/>
