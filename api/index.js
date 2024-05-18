@@ -18,8 +18,8 @@ const app = express();
 
 app.use(express.json()); //? This helps to retrieve the json sent via post request
 
-app.listen(3000, () => {
-    console.log('server is running on port 3000 :)');
+app.listen(3001, () => {
+    console.log('server is running on port 3001 :)');
 })
 
 app.use('/api/user', userRoutes);

@@ -16,7 +16,7 @@ Create all the pages and routes
 
 <hr/>
 
-## Header commit (initial, dynamic) : -
+## Header commit (initial, dynamic, dark mode) : -
 
 1. In flowbite react TextInput component we pass react-icon in rightIcon props to create the search bar UI
 
@@ -29,6 +29,15 @@ _**Dynamic :**_ :
 1. checking the currentUser exist or not :
    1. if exist: showing Avatar with dropdown.
    2. if not exist: showing the Sign In button.
+
+_**Dark mode :**_ :
+
+1. Redux dataFlow :
+   1. Initial State has light theme
+   2. themeSlice has toggleTheme reducer which toggle theme between dark and light on each dispatch.
+2. App is wrapped in ThemeProvider
+3. ThemeProvider has the theme state from themeSlice via useSelector().
+4. Header component theme button trigger the dispatch of toggleTheme() each time it clicked and dynamically change the icons with it.
 
 <hr/>
 
