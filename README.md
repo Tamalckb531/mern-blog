@@ -195,3 +195,19 @@ _**setup :**_
    1. If logged then send the user in outlet (the component wrapped inside it).
    2. If not logged in then send the user in the signIn route
 2. Wrapped the component that needs to private inside it with the browser router.
+
+<hr/>
+
+## Dashboard commit (Profile UI): -
+
+_**Profile UI :**_
+
+1. Dashboard component:
+   1. Have an useEffect that gets the value of tab params in url and set it in the tab state.
+   2. There is DashSidebar which have :
+      1. Same as the one
+      2. Have Profile and signOut. Make profile active according to tab
+   3. Also there has DashProfile which render conditionally if the tab is profile which have :
+      1. The whole User profile with image.
+
+<hr/>
