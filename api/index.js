@@ -3,6 +3,7 @@ import express from 'express'
 import mongoose from 'mongoose';
 import userRoutes from './routes/user.route.js'
 import authRoutes from './routes/auth.route.js'
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGO_URL).then(
 const app = express();
 
 app.use(express.json()); //? This helps to retrieve the json sent via post request
+app.use(cookieParser());
 
 app.listen(3001, () => {
     console.log('server is running on port 3001 :)');

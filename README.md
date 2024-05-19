@@ -198,7 +198,7 @@ _**setup :**_
 
 <hr/>
 
-## Dashboard commit (Profile UI, Image Upload feature): -
+## Dashboard commit (Profile UI, Image Upload feature, Update Functionality): -
 
 _**Profile UI :**_
 
@@ -222,4 +222,37 @@ _UI_
 1. Circular Progressbar depends on imageFileUploadProgress state.
 2. Alert depends on imageFileUploadError
 
-<hr/>
+_**Update Functionality Frontend :**_
+
+1. Setting a object state formData for setting all the changes of data with key in that.
+2. Setting handleChange Function on each TextInput field and inside function setting the formData change on each change.
+3. Triggering a handleSubmit function when update button is clicked :
+   1. return when no changes and image is still uploading (we made a state imageFileUploading for that and it tracks the whole handleImageChange function from start to complete)
+   2. Three redux data flow works here : updateStart, updateSuccess (set the currentUser), updateFailure(set the error)
+   3. In the try block :
+      1. updateStart()
+      2. fetch the put request in /api/user/update/${currentUser.\_id} with formData.
+      3. make the response json
+      4. see the response ok or not :
+         1. Not okay -> updateFailure(data.message)
+         2. okay -> updateSuccess(data)
+   4. In catch block we set the failure.
+   5. We have updateUserSuccess and updateUserError to determine the alert.
+
+_**Update Functionality Backend :**_
+
+1. Add cookieParser middleware to the index.js.
+2. set the put route for /update/:userId with the verifyToken middleware
+3. verifyToken -> take the token from req.cookies.access_token -> verify it with jwt.verify() -> set the user in req.user
+4. updateUser function in the put route handle the rest operation :
+
+   1. check the user.id and password, username length, username space in middle, lowercase, regex and throw error if something is wrong
+   2. On password update, it makes it hashPass
+   3. On try block :
+      1. It find the document with findByIdAndUpdate() where id is req.params.userId
+      2. Set method only change the specific field mentioned while maintaining the other field intact in database
+      3. new:true returns the updated document in updateUser
+      4. Extract the password and return the rest via json.
+   4. catch block throw the error in global catch.
+
+   <hr/>
