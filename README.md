@@ -198,7 +198,7 @@ _**setup :**_
 
 <hr/>
 
-## Dashboard commit (Profile UI, Image Upload feature, Update Functionality): -
+## Dashboard commit (Profile UI, Image Upload feature, Update Functionality, Delete Functionality): -
 
 _**Profile UI :**_
 
@@ -255,4 +255,24 @@ _**Update Functionality Backend :**_
       4. Extract the password and return the rest via json.
    4. catch block throw the error in global catch.
 
-   <hr/>
+_**Delete Functionality Backend :**_
+
+1. /delete/:userId capture the delete request in user.route -> verifyToken -> call deleteUser from user.controller
+2. deleteUser in user.controller
+
+   1. Match the userId with the Id in params and do not further process if the Id not matched
+   2. Delete the user from database with findByIdAndDelete(req.params.userId) method
+
+_**Delete Functionality Frontend :**_
+
+1. Modal popup on "Delete Account" button.
+2. handleDeleteUser run on "Yes, I'm sure" in modal.
+3. handleDeleteUser :
+
+   1. Redux dataflow uses : deleteUserStart(start loading), deleteUserFailure(state error),
+      deleteUserSuccess(make currentUser null)
+   2. deleteStart()
+   3. make a DELETE fetch request on /api/user/delete/${currentUser.\_id}
+   4. deleteSuccess(data) on res.ok
+
+<hr/>
