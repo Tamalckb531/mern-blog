@@ -275,4 +275,19 @@ _**Delete Functionality Frontend :**_
    3. make a DELETE fetch request on /api/user/delete/${currentUser.\_id}
    4. deleteSuccess(data) on res.ok
 
+_**SignOut Functionality Backend :**_
+
+1. /signout capture the signout request in user.route and call the signout function insider user.controller.
+2. singout function -> .clearCookie the access_token
+
+_**SignOut Functionality Frontend :**_
+
+_same functionality for DashSidebar, Header, DashProfile_
+
+1. Redux dataflow : singoutSuccess(makes the currentUser null)
+2. Sign Out button triggers the handleSignOut function
+3. handleSignOut:
+   1. makes a post request inside /api/user/signout
+   2. dispatch signoutSuccess() on res.ok
+
 <hr/>
