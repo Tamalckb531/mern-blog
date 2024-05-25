@@ -58,15 +58,16 @@ export const signin = async (req, res, next) => {
         }
 
         const validPassword = bcryptjs.compareSync(password, validUser.password);
+
         if (!validPassword) {
             return next(errorHandler(400, 'Invalid password'));
         }
 
-        //? Token generation
+        //? Token generation with admin feature
         const token = jwt.sign(
-            { id: validUser._id },
-            process.env.JWT_SECRET,
-        )
+            { id: validUser._id, isAdmin: validUser.isAdmin },
+            process.env.JWT_SECRET
+        );
 
         //? sending token as cookie
 
@@ -127,7 +128,7 @@ export const google = async (req, res, next) => {
 
             //? creating token and sending the info without password
             const token = jwt.sign(
-                { id: newUser._id, isAdmin: newUser.isAdmin },
+                { id: user._id, isAdmin: user.isAdmin },
                 process.env.JWT_SECRET
             );
             const { password, ...rest } = newUser._doc;

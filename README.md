@@ -198,7 +198,7 @@ _**setup :**_
 
 <hr/>
 
-## Dashboard commit (Profile UI, Image Upload feature, Update Functionality, Delete Functionality): -
+## Dashboard commit (Profile UI, Image Upload feature, Update Functionality, Delete Functionality, SignOut Functionality): -
 
 _**Profile UI :**_
 
@@ -289,5 +289,11 @@ _same functionality for DashSidebar, Header, DashProfile_
 3. handleSignOut:
    1. makes a post request inside /api/user/signout
    2. dispatch signoutSuccess() on res.ok
+
+<hr/>
+
+## Admin commit : -
+
+add the isAdmin in user.model and creating token with isAdmin in google and signin function inside auth.controller
 
 <hr/>
