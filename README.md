@@ -297,3 +297,25 @@ _same functionality for DashSidebar, Header, DashProfile_
 add the isAdmin in user.model and creating token with isAdmin in google and signin function inside auth.controller
 
 <hr/>
+
+## Post Feature commit (Post Functionality) : -
+
+_**Post Functionality Frontend :**_
+
+1. Create Post button render in DashProfile if the currentUser is Admin. It redirect to the "/create-post" route.
+2. "/create-post" route is protect by <OnlyAdminPrivateRoute/> which checks the user is admin or not. If yes then it render the <CreatePost/>.
+3. <CreatePost/> : We are using <ReactQuill/> here which is a blog writer
+
+_**Post Functionality Backend :**_
+
+1. /api/post/create handle the create post request
+2. post model data : userId, content, title(unique), image, category, slug(unique)
+3. /create verify the token and redirect to the create function in the post controller.
+4. create :
+   1. Throw error if the user is not admin
+   2. Throw error if no title and content in post
+   3. Making the slug which is the title without any character except [^a-zA-Z0-9-].
+   4. Creating a newPost with req.body, slug, and req.user.id as userId.
+   5. Saving the post using .save() method.
+
+<hr/>
