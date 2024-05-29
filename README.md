@@ -298,7 +298,7 @@ add the isAdmin in user.model and creating token with isAdmin in google and sign
 
 <hr/>
 
-## Post Feature commit (Post Functionality, Upload Image Functionality) : -
+## Post Feature commit (Post Functionality, Upload Image Functionality, Publish Post Functionality) : -
 
 _**Post Functionality Frontend :**_
 
@@ -332,5 +332,14 @@ _**Upload Image Functionality :**_
          3. main callback : getDownloadUrl call with snapshot.ref and we setFormData with previous formData and image:downloadUrl.
 3. Show the circularProgressBar with imageUploadProgress state while uploading.
 4. Show the image after formData has image.
+
+_**Publish Post Functionality :**_
+
+1. On writing in TextInput, Select, ReactQuill we set formData. <br/>
+   TextInput : title, Select: category, ReactQuill: content.
+   2.Clicking Publish trigger the handleSubmit.
+2. handleSubmit :
+   1. fetch formData in body of /api/post/create
+   2. On res.ok -> navigate to /post/${data.slug}
 
 <hr/>
