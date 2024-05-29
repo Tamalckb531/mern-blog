@@ -298,7 +298,7 @@ add the isAdmin in user.model and creating token with isAdmin in google and sign
 
 <hr/>
 
-## Post Feature commit (Post Functionality) : -
+## Post Feature commit (Post Functionality, Upload Image Functionality) : -
 
 _**Post Functionality Frontend :**_
 
@@ -317,5 +317,20 @@ _**Post Functionality Backend :**_
    3. Making the slug which is the title without any character except [^a-zA-Z0-9-].
    4. Creating a newPost with req.body, slug, and req.user.id as userId.
    5. Saving the post using .save() method.
+
+_**Upload Image Functionality :**_
+
+1. file state hold the first image select on the FileInput.
+2. Clicking 'Upload Image' button :
+   1. Trigger the handleUploadImage :
+      1. Throw error if file state is empty.
+      2. Get the storage from firebase and set a fileName for the file. Than makes a storageRef out of them.
+      3. Then set a uploadTask with storageRef and file with uploadBytesResumable().
+      4. uploadTask.on() :
+         1. snapshot callback : set the progress
+         2. error callback : set the error
+         3. main callback : getDownloadUrl call with snapshot.ref and we setFormData with previous formData and image:downloadUrl.
+3. Show the circularProgressBar with imageUploadProgress state while uploading.
+4. Show the image after formData has image.
 
 <hr/>
