@@ -298,7 +298,7 @@ add the isAdmin in user.model and creating token with isAdmin in google and sign
 
 <hr/>
 
-## Post Feature commit (Post Functionality, Upload Image Functionality, Publish Post Functionality, Showing post Functionality, Deleting post Functionality) : -
+## Post Feature commit (Post Functionality, Upload Image Functionality, Publish Post Functionality, Showing post Functionality, Deleting post Functionality, Updating post Functionality) : -
 
 _**Post Functionality Frontend :**_
 
@@ -370,7 +370,7 @@ _**Showing post Functionality Frontend:**_
    2. Set the data in userPosts with previous ones.
    3. Remove the showMore button if data.post length is <9 as per the limit.
 
-_**Showing post Functionality Backend:**_
+_**Deleting post Functionality Backend:**_
 
 1. api/post//deletepost/:postId/:userId trigger the deletepost function.
 2. deletepost :
@@ -389,5 +389,21 @@ _**Deleting post Functionality Frontend:**_
          1.  close the modal
          2.  call the delete api with postIdToDelete and currentUser.\_id
          3.  If res.ok than filter the delete post and set the other post in UserPosts.
+
+_**Updating post Functionality Backend:**_
+
+1. api/post/updatepost/:postId/:userId trigger the updatepost function.
+2. updatepost :
+   1. Get the postId from param.
+   2. set title, content, category, image with the new one came in req.body.
+   3. {new:true} set the new info in the updatedPost and this send as response.
+
+_**Updating post Functionality Frontend:**_
+
+1. Create UpdatePost page protected private with OnlyAdminPrivateRoute with path /update-post/:postId
+2. UpdatePost (works almost like CreatePost page)
+   1. Here handleSubmit works with the api /api/post/updatepost/${formData._id}/${currentUser.\_id} .
+   2. Each time the postId change, it re-fetch the post from /api/post/getposts?postId.
+   3. The 0th index data of posts store in the formData as the post is sorted with updatedTime and just updated post is store in the update section.
 
 <hr/>
