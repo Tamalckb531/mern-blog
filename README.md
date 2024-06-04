@@ -298,7 +298,7 @@ add the isAdmin in user.model and creating token with isAdmin in google and sign
 
 <hr/>
 
-## Post Feature commit (Post Functionality, Upload Image Functionality, Publish Post Functionality, Showing post Functionality) : -
+## Post Feature commit (Post Functionality, Upload Image Functionality, Publish Post Functionality, Showing post Functionality, Deleting post Functionality) : -
 
 _**Post Functionality Frontend :**_
 
@@ -369,5 +369,25 @@ _**Showing post Functionality Frontend:**_
    1. Get the data with userId and userPosts length as startIndex
    2. Set the data in userPosts with previous ones.
    3. Remove the showMore button if data.post length is <9 as per the limit.
+
+_**Showing post Functionality Backend:**_
+
+1. api/post//deletepost/:postId/:userId trigger the deletepost function.
+2. deletepost :
+   1. check user isAdmin and the userId is matched with the userId in params. Work next if all ok.
+   2. find the postId and delete it with findByIdAndDelete method in mongoose.
+
+_**Deleting post Functionality Frontend:**_
+
+1. Delete Button :
+   1. Open the model.
+   2. set the postIdToDelete.
+
+2.Modal :
+
+      1.  Yes, I'm sure trigger the handleDeletePost :
+         1.  close the modal
+         2.  call the delete api with postIdToDelete and currentUser.\_id
+         3.  If res.ok than filter the delete post and set the other post in UserPosts.
 
 <hr/>
