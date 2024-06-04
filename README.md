@@ -298,7 +298,7 @@ add the isAdmin in user.model and creating token with isAdmin in google and sign
 
 <hr/>
 
-## Post Feature commit (Post Functionality, Upload Image Functionality, Publish Post Functionality) : -
+## Post Feature commit (Post Functionality, Upload Image Functionality, Publish Post Functionality, Showing post Functionality) : -
 
 _**Post Functionality Frontend :**_
 
@@ -341,5 +341,33 @@ _**Publish Post Functionality :**_
 2. handleSubmit :
    1. fetch formData in body of /api/post/create
    2. On res.ok -> navigate to /post/${data.slug}
+
+_**Showing post Functionality Backend:**_
+
+1. /api/post/getposts handle the showing post functionality.
+2. It don't verify the token cause anyone can see the post and run the getposts funciton of post.controller.
+3. getposts function (it will use in both search, dashboard, home route) :
+
+   1. It find the data with multiple queries using .find() method of mongoose :
+
+      1. ... use to conditionally check the query and using multiple query.
+      2. userId, slug, postId, category are normal query to get the post.
+      3. On searchTerm we are using regex so that any word written on title 'or' content can be given in the search box and it will find the relevant blog.
+
+   2. Then sort them according to the update date, skip will do pagination( like on 2nd page it will skip the startIndex\*limit means 9 post), limit will limit the blog post number.
+   3. We will count totalPosts and lastMonthPosts to show them in dashboard.
+
+_**Showing post Functionality Frontend:**_
+
+1. Posts section is Dashboard sidebar will only show for the admin.
+2. It will render the DashPosts as per the tab
+3. DashPosts :
+   1. It get the post with the current_User.\_id
+   2. Render the post with Table component of Flowbite.
+4. Show more button in the end of DashPosts will fetch more data in table by triggering the handleShowMore function.
+5. handleShowMore :
+   1. Get the data with userId and userPosts length as startIndex
+   2. Set the data in userPosts with previous ones.
+   3. Remove the showMore button if data.post length is <9 as per the limit.
 
 <hr/>
