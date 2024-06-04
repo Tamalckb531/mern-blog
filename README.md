@@ -359,7 +359,7 @@ _**Showing post Functionality Backend:**_
 
 _**Showing post Functionality Frontend:**_
 
-1. Posts section is Dashboard sidebar will only show for the admin.
+1. Posts section in Dashboard sidebar will only show for the admin.
 2. It will render the DashPosts as per the tab
 3. DashPosts :
    1. It get the post with the current_User.\_id
@@ -405,5 +405,28 @@ _**Updating post Functionality Frontend:**_
    1. Here handleSubmit works with the api /api/post/updatepost/${formData._id}/${currentUser.\_id} .
    2. Each time the postId change, it re-fetch the post from /api/post/getposts?postId.
    3. The 0th index data of posts store in the formData as the post is sorted with updatedTime and just updated post is store in the update section.
+
+## User rendering Feature commit:
+
+_**Backend:**_
+
+1. api/user/getusers trigger the getUsers function.
+2. getUsers :
+   1. Get all the users with pagination limit.
+   2. Remove the password of the users from user.\_doc.
+   3. Get the totalCount and monthlyTotalCount of users to show it on the blog.
+
+_**Frontend:**_
+
+1. Users section in Dashboard sidebar will only show for the admin.
+2. It will render the DashUsers as per the tab
+3. DashUsers :
+   1. fetch the data of Users in the table from /api/users/getusers.
+   2. Clicking show more data trigger handleShowMore which render more data with the previous data
+4. Delete User Modal:
+   1. Clicking Delete button trigger it.
+   2. Clicking "Yes! I'm sure" trigger the handleDeleteUser function.
+   3. It call the /api/user/delete/:userId route with a delete method.
+   4. On res.ok it filter the user state and set new users in the user state.
 
 <hr/>
