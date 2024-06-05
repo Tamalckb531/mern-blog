@@ -450,7 +450,7 @@ CallToAction is just an add type component that can be rendered anywhere.
 
 This is a piece of code which helps to start the view in top while navigating to one page to another.
 
-# Comment Feature Commit (Post Comment Feature):
+# Comment Feature Commit (Post Comment Feature, Show Comment Feature):
 
 _**Post Comment Feature Backend:**_
 
@@ -469,5 +469,37 @@ _**Post Comment Feature Frontend:**_
 4. Submit button trigger handleSubmit :
    1. Hit a post request in /api/comment/create.
    2. On body it sent : content as comment, userId, postId.
+
+_**Show Comment Feature Backend:**_
+
+_Comment Api :_
+
+1. /api/comment/getPostComments/:postId -> trigger the getPostComments in controller.
+2. getPostComments in controller :
+   1. find the comment from Comment model with postId and sort them new one first (createdAt:-1).
+   2. Send the comments.
+
+_User Api :_
+
+1. /api/user/:userId -> trigger the getUser (this is for all user so no token verification)
+2. getUser in user.controller :
+   1. find user with userId
+   2. remove the password from the \_doc.
+   3. send the rest info.
+
+_**Show Comment Feature Frontend:**_
+
+_CommentSection Component :_
+
+1. fetch the data from /api/comment/getPostComments/:postId (postId came from PostPage as props).
+2. Set data in comments. (in the handleSubmit -> it also set the data in comments alongside with previous comments)
+3. Sent the comment as content props in Comment component.
+
+_Comment Component :_
+
+1. Get the userId of comment from /api/user/${comment.userId}.
+2. Set it in user.
+3. Fetch the username, dp, content etc
+4. Show how many times before the comment posted with this : {moment(comment.createdAt).fromNow()}
 
 <hr/>
