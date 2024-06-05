@@ -625,7 +625,7 @@ _**Frontend:**_
       2. It fetch data from /api/comment/getcomments?startIndex=${startIndex} where startIndex is comments.length.
       3. on res.ok it set the comments with previous and make show more vanish if data.comments.length<9.
 
-# Dashboard Stat Commit
+# Dashboard Stat Commit :
 
 1. Clicking Dashboard in sidebar trigger /dashboard?tab=dash which render DashboardComp in Dashboard.
 2. In DashboardComp it does three things :
@@ -641,5 +641,37 @@ _**Frontend:**_
       1. get users form /api/user/getcomments?limit=5
       2. set comments, totalComments and lastMonthComments.
       3. Fetch comments details in Table with "See all" link to Users and totalComments, lastMonthComments in stat card.
+
+# Search and filter Functionality Commit :
+
+_**Backend:**_
+
+It use the /api/post/getposts api endpoint searchQuery.
+
+_**Frontend:**_
+
+_Header Component :_
+
+1. Set the searchTerm from searchTerm urlParam. Change the searchTerm each time something new typed in search box and click enter.
+2. OnSubmit in search box trigger handleSubmit :
+   1. set the searchTerm in urlParams as searchTerm.
+   2. navigate to /search/${searchQuery} (searchQuery contain the typed query in search box)
+
+_Search Component :_
+
+1. It gets urlParam according to searchTerm, sort and category and set them in sidebarData.
+2. Then it fetch the post with /api/post/getposts?${searchQuery} where searchQuery is whatever in the urlParams.
+3. set the data in posts state. Also handle the show more visibility like the previous.
+4. The sidebar form has three component :
+   1. Search Term :
+      1. onchange on it trigger handleChange.
+      2. It set the sidebarData with previous data and new searchTerm.
+   2. Sort :
+      1. onchange on it trigger handleChange.
+      2. It set the sidebarData with previous data and new order.
+   3. Category :
+      1. onchange on it trigger handleChange.
+      2. It set the sidebarData with previous data and new category.
+5. Clicking the show more set the startIndex in urlParams and do it's usual job.
 
 <hr/>
