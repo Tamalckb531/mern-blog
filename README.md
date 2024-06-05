@@ -442,4 +442,8 @@ _**Frontend:**_
    1. fetch post with slug and set it on post.
    2. The content of this post inject in a div with dangerouslySetInnerHTML attribute.
 
+## Call To Action commit :
+
+CallToAction is just an add type component that can be rendered anywhere.
+
 <hr/>
