@@ -446,4 +446,28 @@ _**Frontend:**_
 
 CallToAction is just an add type component that can be rendered anywhere.
 
+# Scroll To Top commit :
+
+This is a piece of code which helps to start the view in top while navigating to one page to another.
+
+# Comment Feature Commit (Post Comment Feature):
+
+_**Post Comment Feature Backend:**_
+
+1. commentSchema -> have the schema of content, postId, userId, likes and numbersOfLikes
+2. /api/comment/create -> trigger the createComment function in controller to create a comment.
+3. createComment function in controller :
+   1. get the content, userId, postId from req.body.
+   2. create a newComment with Comment model.
+   3. save it into database and sent it as response.
+
+_**Post Comment Feature Frontend:**_
+
+1. CommentSection is the component to write and post comment.
+2. It first take the currentUser and show it at top. Link it to it's profile. It user not logged in than it says to login link to login page.
+3. Then there is form with textArea(store the text in comment state), Dynamic char remain para, Submit button.
+4. Submit button trigger handleSubmit :
+   1. Hit a post request in /api/comment/create.
+   2. On body it sent : content as comment, userId, postId.
+
 <hr/>
