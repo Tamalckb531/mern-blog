@@ -429,4 +429,17 @@ _**Frontend:**_
    3. It call the /api/user/delete/:userId route with a delete method.
    4. On res.ok it filter the user state and set new users in the user state.
 
+## Post rendering Feature commit:
+
+_**Backend:**_
+
+1. Getting the post from /api/post/getposts?slug={postSlug}
+
+_**Frontend:**_
+
+1. Clicking the post from any where (like : table) will sent the slug as params and render PostPage.
+2. PostPage:
+   1. fetch post with slug and set it on post.
+   2. The content of this post inject in a div with dangerouslySetInnerHTML attribute.
+
 <hr/>
