@@ -674,4 +674,9 @@ _Search Component :_
       2. It set the sidebarData with previous data and new category.
 5. Clicking the show more set the startIndex in urlParams and do it's usual job.
 
+<br/>
+<br/>
+<br/>
+
 <hr/>
+<h1>200 ok. Project completed successfully 😊😊😊</h1>
