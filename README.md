@@ -450,7 +450,7 @@ CallToAction is just an add type component that can be rendered anywhere.
 
 This is a piece of code which helps to start the view in top while navigating to one page to another.
 
-# Comment Feature Commit (Post Comment Feature, Show Comment Feature, Like Feature, Edit Feature):
+# Comment Feature Commit (Post Comment Feature, Show Comment Feature, Like Feature, Edit Feature, Delete Feature):
 
 _**Post Comment Feature Backend:**_
 
@@ -560,5 +560,29 @@ _CommentSection Component :_
 1. Receive the content and editedContent from onEdit in Comment Component.
 2. It triggers the handleEdit :
    1. It set the comments with editedContent.
+
+_**Delete Feature Backend:**_
+
+1. /api/comment/deleteComment/:commentId -> trigger the deleteComment function in controller.
+2. deleteComment :
+   1. Find the comment with commentId from Comment model.
+   2. Delete the comment with findByIdAndDelete.
+
+_**Delete Feature Frontend:**_
+
+_Comment Component :_
+
+1. Clicking the delete button target onDelete(comment.\_id) -> onDelete sent from CommentSection.
+
+_CommentSection Component :_
+
+1. Receive the commentId from onDelete on Comment Component.
+2. It sets the showModal to true and commentId in commentToDelete.
+3. On Modal : "Yes, I'm sure" trigger the handleDelete with commentToDelete as props.
+4. handleDelete :
+   1. Shut down the modal.
+   2. If currentUser not found or user not logged in then send them in /sign-in.
+   3. Call a delete request in /api/comment/deleteComment/${commentId} .
+   4. On res.ok it get the data and filter it out from the comment.
 
 <hr/>
