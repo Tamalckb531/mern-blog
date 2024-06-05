@@ -502,4 +502,33 @@ _Comment Component :_
 3. Fetch the username, dp, content etc
 4. Show how many times before the comment posted with this : {moment(comment.createdAt).fromNow()}
 
+_**Like Feature Backend:**_
+
+1. /api/comment/likeComment/:commentId -> trigger the likeComment function in controller.
+2. likeComment :
+   1. Find the comment with commentId from Comment model.
+   2. Find the user is already liked or not from comment.likes
+   3. If user didn't like :
+      1. increase numberOfLikes with 1 in database.
+      2. push the userId in comments.like
+   4. If user did like :
+      1. decrease numberOfLikes with 1 in database.
+      2. splice the userId from comments.like
+
+_**Like Feature Frontend:**_
+
+_Comment Component :_
+
+1. Each time the like button click -> it is sending the comment.\_id in onLike sent from CommentSection .
+2. Making the dynamic styling like :
+   1. showing the icon blue while it is liked and gray when it is not liked.
+   2. showing number of like when numberOfLike in comment actually exist.
+
+_CommentSection Component :_
+
+1. Receive the onClick commentId and run handleLike :
+   1. First it checks the user existance. If don't exist then sent him to /sign-in.
+   2. Call /api/comment/likeComment/${commentId} api for put request.
+   3. On res.ok it sets the data on specific comment.id maintaining previous comment data.
+
 <hr/>
