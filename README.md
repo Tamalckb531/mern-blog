@@ -625,4 +625,21 @@ _**Frontend:**_
       2. It fetch data from /api/comment/getcomments?startIndex=${startIndex} where startIndex is comments.length.
       3. on res.ok it set the comments with previous and make show more vanish if data.comments.length<9.
 
+# Dashboard Stat Commit
+
+1. Clicking Dashboard in sidebar trigger /dashboard?tab=dash which render DashboardComp in Dashboard.
+2. In DashboardComp it does three things :
+   1. fetUsers :
+      1. get users form /api/user/getusers?limit=5
+      2. set user, totalUser and lastMonthUsers.
+      3. Fetch user details in Table with "See all" link to Users and totalUser, lastMonthUsers in stat card.
+   1. fetchPosts :
+      1. get users form /api/user/getposts?limit=5
+      2. set posts, totalPosts and lastMonthPosts.
+      3. Fetch post details in Table with "See all" link to Posts and totalPosts, lastMonthPosts in stat card.
+   1. fetchComments :
+      1. get users form /api/user/getcomments?limit=5
+      2. set comments, totalComments and lastMonthComments.
+      3. Fetch comments details in Table with "See all" link to Users and totalComments, lastMonthComments in stat card.
+
 <hr/>
