@@ -450,7 +450,7 @@ CallToAction is just an add type component that can be rendered anywhere.
 
 This is a piece of code which helps to start the view in top while navigating to one page to another.
 
-# Comment Feature Commit (Post Comment Feature, Show Comment Feature):
+# Comment Feature Commit (Post Comment Feature, Show Comment Feature, Like Feature):
 
 _**Post Comment Feature Backend:**_
 
