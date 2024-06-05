@@ -585,4 +585,17 @@ _CommentSection Component :_
    3. Call a delete request in /api/comment/deleteComment/${commentId} .
    4. On res.ok it get the data and filter it out from the comment.
 
+# Article Render Commit
+
+_PostPage Component :_
+
+1. Fetch 3 recent post from api/post/getposts (give recent updated post first).
+2. on res.ok, set the data on recentPost.
+3. Map all PostCard with recentPost data and send each post in that as props.
+
+_PostCard Component :_
+
+1. The image is Link navigating to postSlug.
+2. Fetching other things
+
 <hr/>
