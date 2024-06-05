@@ -450,7 +450,7 @@ CallToAction is just an add type component that can be rendered anywhere.
 
 This is a piece of code which helps to start the view in top while navigating to one page to another.
 
-# Comment Feature Commit (Post Comment Feature, Show Comment Feature, Like Feature):
+# Comment Feature Commit (Post Comment Feature, Show Comment Feature, Like Feature, Edit Feature):
 
 _**Post Comment Feature Backend:**_
 
@@ -530,5 +530,35 @@ _CommentSection Component :_
    1. First it checks the user existance. If don't exist then sent him to /sign-in.
    2. Call /api/comment/likeComment/${commentId} api for put request.
    3. On res.ok it sets the data on specific comment.id maintaining previous comment data.
+
+_**Edit Feature Backend:**_
+
+1. /api/comment/editComment/:commentId -> trigger the editComment function in controller.
+2. editComment :
+   1. Find the comment with commentId from Comment model.
+   2. Update the comment with findByIdAndUpdate where content is req.body.content.
+   3. Send it as edited comment.
+
+_**Edit Feature Frontend:**_
+
+_Comment Component :_
+
+1. Clicking the edit button trigger the handleEdit function.
+2. handleEdit :
+   1. Set isEditing true which trigger the TextArea with save and cancel button.
+   2. TextArea set the change value in editedContent.
+   3. Save button trigger the handleSave :
+      1. Call a put request in /api/comment/editComment/${comment.\_id}
+      2. Set the editedContent in content which goes as body.
+      3. on res.ok makes the IsEditing false and sent comment, editedComment in onEdit came from
+         CommentSection.
+   4. Cancel button set the isEditing false.
+3. set the editedContent -> comment.content
+
+_CommentSection Component :_
+
+1. Receive the content and editedContent from onEdit in Comment Component.
+2. It triggers the handleEdit :
+   1. It set the comments with editedContent.
 
 <hr/>
