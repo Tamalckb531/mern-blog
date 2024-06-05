@@ -598,4 +598,31 @@ _PostCard Component :_
 1. The image is Link navigating to postSlug.
 2. Fetching other things
 
+# Comment Stat Commit
+
+_**Backend:**_
+
+1. /api/comment/getcomments trigger the getcomments in controller.
+2. getcomments in controller :
+   1. Get all comment with descending sorting, pagination and limit
+   2. Get total count and monthlyCount of comments.
+   3. Send all three.
+
+_**Frontend:**_
+
+1. DashSidebar has Comments tab goes on '/dashboard?tab=comments'.
+2. This tab render <DashComments /> on DashBoard.
+3. DashComments :
+   1. fetch comments from /api/comment/getcomments and set it on comments.
+   2. If total comment is < 9 then it set showMore to false.
+   3. Render all the comment with date, content, postId, userId, Number of Likes and delete button.
+   4. Clicking delete button :
+      1. Trigger the modal and set commentId in commentToDelete.
+      2. Clicking "Yes, I'm sure" trigger the handleDeleteComment.
+      3. handleDeleteComment fetch a delete request in /api/comment/deleteComment/${commentIdToDelete} adn filter the deleted comment.
+   5. Clicking show more button:
+      1. Trigger the handleShowMore
+      2. It fetch data from /api/comment/getcomments?startIndex=${startIndex} where startIndex is comments.length.
+      3. on res.ok it set the comments with previous and make show more vanish if data.comments.length<9.
+
 <hr/>
